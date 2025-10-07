@@ -1,0 +1,97 @@
+The Master Blueprint Prompt
+Overall Goal:
+Create a complete, single-page web application named "ABD Revisi Kilat". This application is a specialized 2D schematic editor for revising telecommunication network As-Built Drawings (ABD). It should be user-friendly, fast, and tailored specifically to the provided workflow and symbols.
+
+Technology Stack:
+
+Frontend Framework: React (using Vite for the project setup).
+
+Drawing Canvas Library: Fabric.js
+
+PDF Export Library: jsPDF and html2canvas
+
+Detailed Feature Breakdown:
+
+1. Main Application Structure & Layout:
+
+Create a three-column layout.
+
+Left Sidebar ("Symbol Library"): Fixed width of 200px.
+
+Center Area ("Drawing Canvas"): Fills the remaining space.
+
+Right Sidebar ("Properties Panel"): Fixed width of 250px.
+
+2. Left Sidebar: The Symbol Library
+
+This sidebar will contain buttons for adding each specific network component to the canvas.
+
+For the icons, please use SVG representations that closely match the provided legend. When a button is clicked, the corresponding SVG object is added to the canvas.
+
+Create a button for each of the following 11 symbols:
+
+ODC: A red, outlined triangle with an inner lattice pattern.
+
+ODP Wall: A solid red, downward-pointing triangle.
+
+ODP Tiang: A solid red, upward-pointing triangle.
+
+ODP Pedestal: A solid red, downward-pointing triangle with a line on top.
+
+Tiang Eksisting (Existing Pole): A white circle with a black outline.
+
+Tiang Baru (New Pole): A solid red circle.
+
+MSAN / MDU: A red, stylized building icon.
+
+Closure Penuh: A red circle with a horizontal line through it.
+
+Closure Suntik: A red circle with a diagonal line through it.
+
+Manhole: A red, outlined rectangle.
+
+Grounding: A red grounding symbol.
+
+Also, add one more button:
+12. Add Cable: This button toggles a "line drawing mode" on the canvas.
+
+3. Center Area: The Drawing Canvas
+
+Implement a Fabric.js canvas that fills the entire center area.
+
+Object Manipulation: Any SVG object added from the sidebar must be selectable, draggable (movable), rotatable, and deletable using the keyboard's 'Delete' key.
+
+Line Drawing Mode: When the "Add Cable" button is clicked, the user should be able to draw straight lines on the canvas by clicking a start point and an end point. The line itself should be a selectable object. Clicking the button again should disable this mode.
+
+4. Right Sidebar: The Smart Properties Panel
+
+This panel is context-aware and displays information about the currently selected object on the canvas.
+
+Default State: When no object is selected, it should display the text "No Object Selected".
+
+On Object Selection: When a user clicks an object on the canvas, this panel must update and show:
+
+Object Type: A non-editable text field showing the symbol's type (e.g., "Type: ODP Tiang").
+
+Object Name: A text input field labeled "Name". The text entered here must be saved as a custom property of that specific Fabric.js object. If another object is selected, this field should update to show the new object's name.
+
+5. Bottom Section: Title Block & Final Export
+
+Create a section below the canvas that will serve as the title block editor.
+
+Include two text input fields:
+
+Label: "Nama Gambar"
+
+Label: "Daerah STO"
+
+Create a prominent button at the top of the entire page labeled "Export to PDF".
+
+Export Functionality: When this button is clicked, use jsPDF and html2canvas to generate a single A3-sized PDF file in landscape orientation. The PDF must be a high-quality capture of:
+
+The entire visible area of the drawing canvas with all its symbols and lines.
+
+The text content from the "Nama Gambar" and "Daerah STO" fields, formatted and placed at the bottom-right of the PDF page to look like a proper drawing title block.
+
+Final Instruction:
+Please generate the complete, self-contained code for this application using React with functional components and hooks. Structure the code into logical components (e.g., App.jsx, Sidebar.jsx, Canvas.jsx, PropertiesPanel.jsx) and provide clear comments where necessary.
