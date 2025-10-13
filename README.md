@@ -32,7 +32,7 @@ ABD Revisi Kilat is a specialized single-page web application designed as a 2D s
 
     ```bash
     git clone <[https://github.com/jerico-c/abd-draw.git]>
-    cd ABDSalesLead
+    cd abd-draw
     ```
 
 2.  **Install dependencies:**
